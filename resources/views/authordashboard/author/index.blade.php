@@ -131,7 +131,7 @@
                 <h5><i class="bi bi-gear"></i> Options</h5>
                 <div class="option-switch">
                     <label for="darkModeSwitch"><i class="bi bi-moon"></i> Activer le mode sombre</label>
-                    <input class="form-check-input" type="checkbox" id="darkModeSwitch" disabled>
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
                 </div>
                 <div class="option-switch">
                     <label for="notifSwitch"><i class="bi bi-bell"></i> Notifications email</label>
@@ -186,4 +186,27 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    // Initialize the dark mode switch based on localStorage
+    document.addEventListener('DOMContentLoaded', function () {
+        const switchEl = document.getElementById('darkModeSwitch');
+        if (!switchEl) return;
+        // Set initial state
+        switchEl.checked = localStorage.getItem('blixt_dark_mode') === '1';
+
+        // Listen for changes
+        switchEl.addEventListener('change', function () {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('blixt_dark_mode', '1');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('blixt_dark_mode', '0');
+            }
+        });
+    });
+</script>
 @endsection

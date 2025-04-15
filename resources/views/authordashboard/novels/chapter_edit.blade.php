@@ -15,6 +15,46 @@
     .tox-tinymce {
         min-height: 500px;
     }
+    /* DARK MODE: Inputs, selects, textareas, input-group-text */
+    body.dark-mode input,
+    body.dark-mode textarea,
+    body.dark-mode select,
+    body.dark-mode .form-control,
+    body.dark-mode .form-select,
+    body.dark-mode .input-group-text {
+        background: #232635 !important;
+        color: #f3f3f3 !important;
+        border-color: #44485a !important;
+    }
+    body.dark-mode input:focus,
+    body.dark-mode textarea:focus,
+    body.dark-mode select:focus,
+    body.dark-mode .form-control:focus,
+    body.dark-mode .form-select:focus {
+        background: #232635 !important;
+        color: #f3f3f3 !important;
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 0.2rem rgba(59,130,246,0.15) !important;
+    }
+    body.dark-mode input::placeholder,
+    body.dark-mode textarea::placeholder,
+    body.dark-mode .form-control::placeholder {
+        color: #b3c7f9 !important;
+        opacity: 1;
+    }
+    /* DARK MODE: TinyMCE editor */
+    body.dark-mode .tox .tox-edit-area__iframe,
+    body.dark-mode .tox .tox-edit-area {
+        background: #232635 !important;
+        color: #f3f3f3 !important;
+    }
+    body.dark-mode .tox .tox-toolbar,
+    body.dark-mode .tox .tox-toolbar__primary,
+    body.dark-mode .tox .tox-toolbar__overflow,
+    body.dark-mode .tox .tox-toolbar__group {
+        background: #232635 !important;
+        color: #f3f3f3 !important;
+    }
 </style>
 @endsection
 
