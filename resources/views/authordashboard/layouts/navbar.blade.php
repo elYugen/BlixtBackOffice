@@ -29,11 +29,13 @@
   
         @if (Auth::check())
         <div class="d-flex align-items-center ms-auto">
-          <img src="{{ Auth::user()->avatar ?? 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) }}" 
-               class="rounded-circle me-2" 
-               alt="Profile Picture" 
-               style="width: 30px; height: 30px; object-fit: cover;">
-          <span class="me-3 my-2 my-lg-0 text-white">{{ Auth::user()->name }} ({{ Auth::user()->author->pen_name }})</span>
+          <a href="{{ route('authordashboard.user.index') }}" class="d-flex align-items-center text-decoration-none">
+            <img src="{{ Auth::user()->author && Auth::user()->author->avatar ? asset('storage/' . Auth::user()->author->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) }}" 
+                 class="rounded-circle me-2" 
+                 alt="Profile Picture" 
+                 style="width: 30px; height: 30px; object-fit: cover;">
+            <span class="me-3 my-2 my-lg-0 text-white">{{ Auth::user()->name }} ({{ Auth::user()->author->pen_name }})</span>
+          </a>
           <form class="d-flex my-2 my-lg-0" action="{{ route('authordashboard.logout') }}" method="POST">
             @csrf
             <button class="btn btn-outline-light border-0" type="submit">

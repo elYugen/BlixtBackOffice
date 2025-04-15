@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthorDashboard\ComicController as AuthorDashboardComic
 use App\Http\Controllers\AuthorDashboard\DashboardController;
 use App\Http\Controllers\AuthorDashboard\NovelChapterController;
 use App\Http\Controllers\AuthorDashboard\NovelController as AuthorDashboardNovelController;
+use App\Http\Controllers\AuthorDashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'index']);
@@ -38,7 +39,13 @@ Route::prefix('/author/dashboard')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::post('/login/logout', [AuthController::class, 'logout'])->name('authordashboard.logout');
+
+        // Route lié au dashboard et à l'auteur
         Route::get('/stats', [DashboardController::class, 'index'])->name('authordashboard.index');
+        Route::get('/author', [UserController::class, 'index'])->name('authordashboard.user.index');
+        Route::put('/author/edit', [UserController::class, 'update'])->name('authordashboard.user.update');
+
+
 
         // Route lié aux romans
         Route::get('/novels', [AuthorDashboardNovelController::class, 'index'])->name('authordashboard.novels');
