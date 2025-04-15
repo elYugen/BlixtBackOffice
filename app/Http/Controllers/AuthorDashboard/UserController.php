@@ -23,7 +23,7 @@ class UserController extends Controller
         $request->validate([
             'pen_name' => 'required|string|max:255',
             'bio' => 'nullable|string',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:6048',
         ]);
 
         $author->pen_name = $request->pen_name;
