@@ -65,6 +65,20 @@
                    class="btn btn-secondary me-2">
                     <i class="bi bi-pencil"></i> Modifier le roman
                 </a>
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-download"></i> Télécharger
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item"
+                               href="http://localhost:3000/download/novel/{{ $novel->id }}?format=pdf"
+                               target="_blank">
+                                PDF
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <button type="button" 
                         class="btn btn-outline-danger" 
                         data-bs-toggle="modal" 

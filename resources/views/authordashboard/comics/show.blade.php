@@ -61,6 +61,20 @@
                 <a href="{{ route('authordashboard.comics.edit', $comic) }}" class="btn btn-secondary me-2">
                     <i class="bi bi-pencil"></i> Modifier la bande dessinée
                 </a>
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-download"></i> Télécharger
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item"
+                               href="http://localhost:3000/download/comic/{{ $comic->id }}?format=pdf"
+                               target="_blank">
+                                PDF
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     <i class="bi bi-trash"></i> Supprimer
                 </button>
